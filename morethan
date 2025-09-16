@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>More Than A Film Limited</title>
+  <style>
+    :root {
+      --bg:#f7f7f5; --fg:#0a0a0a; --muted:#6b6b6b; --line:#e3e3e0;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--fg);
+         font:16px/1.65 -apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif}
+    header{position:sticky;top:0;background:rgba(247,247,245,.9);
+           backdrop-filter:saturate(150%) blur(6px);border-bottom:1px solid var(--line)}
+    .wrap{max-width:1000px;margin:0 auto;padding:18px 22px;
+          display:flex;align-items:center;justify-content:space-between}
+    nav a{text-transform:uppercase;letter-spacing:.18em;font-size:12px;color:#666;
+          text-decoration:none;margin-left:22px}
+    nav a:hover{color:#000}
+    .lang button{border:1px solid var(--line);padding:6px 10px;
+                 background:#fff;border-radius:999px;margin-left:6px;cursor:pointer}
+    .lang .on{background:#000;color:#fff;border-color:#000}
+    .hero{max-width:1000px;margin:0 auto;padding:56px 22px 32px;
+          display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+    h1{font-weight:500;letter-spacing:-.02em;line-height:.98;
+       font-size:clamp(40px,7vw,84px);margin:0 0 12px}
+    .muted{color:var(--muted)}
+    .card{border:1px solid var(--line);border-radius:20px;background:#fff;
+          box-shadow:0 1px 6px rgba(0,0,0,.03)}
+    .section{max-width:1000px;margin:0 auto;padding:42px 22px}
+    h2{font-size:22px;margin:0 0 12px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .pill{display:inline-block;border:1px solid var(--line);
+          padding:10px 14px;border-radius:14px;text-decoration:none;color:var(--fg)}
+    .gallery img{width:100%;height:100%;object-fit:cover;
+                 border-radius:14px;border:1px solid var(--line)}
+    .footer{border-top:1px solid var(--line);padding:28px 22px;
+            color:#777;text-align:center}
+    .logo-cn,.logo-en{letter-spacing:.18em;font-size:12px}
+    @media(max-width:860px){.hero{grid-template-columns:1fr}nav{display:none}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div>
+      <div class="logo-cn">墨 然 映 画</div>
+      <div class="logo-en">MORE THAN A FILM</div>
+    </div>
+    <nav>
+      <a href="#announcement" data-i="nav_announce">公告</a>
+      <a href="#services" data-i="nav_services">业务</a>
+      <a href="#works" data-i="nav_works">作品</a>
+      <a href="#contact" data-i="nav_contact">联系</a>
+    </nav>
+    <div class="lang">
+      <button id="zhBtn" class="on">ZH</button>
+      <button id="enBtn">EN</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>MORE<br/>THAN A<br/>FILM</h1>
+    <p class="muted" data-i="tagline">创作的价值，不止于影像本身。</p>
+    <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
+      <a class="pill" href="#services" data-i="cta_services">了解业务</a>
+      <a class="pill" href="#announcement" data-i="cta_announcement">成立公告</a>
+    </div>
+  </div>
+  <div class="muted" style="text-align:right">[LOGO 占位图]</div>
+</section>
+
+<section id="announcement" class="section" style="border-top:1px solid var(--line)">
+  <h2 data-i="announce_title">公司成立公告</h2>
+  <p data-i="announce_body1">墨然映画有限公司（More Than A Film Limited）已于 2025 年 9 月 16 日在香港正式注册成立。</p>
+  <p data-i="announce_body2">本公司为独立影像制作公司，兼顾原创项目与实际落地。</p>
+</section>
+
+<section id="services" class="section">
+  <h2 data-i="services_title">业务</h2>
+  <div class="grid-3">
+    <div class="card" style="padding:16px"><h3>短片/长片开发</h3><p class="muted">从概念到剧本、排期与预算控制。</p></div>
+    <div class="card" style="padding:16px"><h3>AIGC 影像创作</h3><p class="muted">用生成式工具扩展影像表达。</p></div>
+    <div class="card" style="padding:16px"><h3>制片执行与后期</h3><p class="muted">现场执行、剪辑、声音与交付。</p></div>
+  </div>
+</section>
+
+<section id="works" class="section">
+  <h2 data-i="works_title">作品与频道</h2>
+  <div class="gallery grid-3" style="margin-top:14px">
+    <img src="" alt="Rainy Night Café 海报占位"/>
+    <img src="" alt="Break Up To Make Up 海报占位"/>
+    <img src="" alt="Ill Melody 海报占位"/>
+  </div>
+  <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+    <a class="pill" href="https://space.bilibili.com/359204615" target="_blank">Bilibili</a>
+    <a class="pill" href="https://www.youtube.com/@MoreThanAFilm" target="_blank">YouTube</a>
+  </div>
+</section>
+
+<section id="honors" class="section">
+  <h2 data-i="honors_title">入围与荣誉</h2>
+  <ul>
+    <li>患曲：科莱坞国际电影节（最佳亚洲短片）、斯德哥尔摩城市电影节、釜山国际电影节（市场单元）…</li>
+    <li>再度：斯德哥尔摩城市电影节、罗马棱镜电影节、吕勒奥国际电影节、AIMAFF（荣誉提及）…</li>
+  </ul>
+</section>
+
+<section id="contact" class="section">
+  <h2 data-i="contact_title">联系</h2>
+  <p class="muted">商务与合作，请发送邮件：</p>
+  <div style="margin-top:8px">
+    <a class="pill" href="mailto:morethanpictures2024@gmail.com">morethanpictures2024@gmail.com</a>
+  </div>
+</section>
+
+<div class="footer">© 2025 More Than A Film Limited</div>
+
+<script>
+const zh={tagline:'创作的价值，不止于影像本身。',cta_services:'了解业务',cta_announcement:'成立公告',
+announce_title:'公司成立公告',announce_body1:'墨然映画有限公司…已于 2025 年 9 月 16 日注册成立。',
+announce_body2:'本公司为独立影像制作公司，兼顾原创项目与实际落地。',
+services_title:'业务',works_title:'作品与频道',honors_title:'入围与荣誉',contact_title:'联系'};
+const en={tagline:'The value of creation is never confined to the image itself.',cta_services:'View Services',cta_announcement:'Announcement',
+announce_title:'Incorporation Announcement',announce_body1:'More Than A Film Limited was incorporated in Hong Kong on 16 Sep 2025.',
+announce_body2:'An independent film production house balancing original projects and execution.',
+services_title:'Services',works_title:'Works & Channels',honors_title:'Selections & Honors',contact_title:'Contact'};
+const zhBtn=document.getElementById('zhBtn'),enBtn=document.getElementById('enBtn');
+function apply(d){document.querySelectorAll('[data-i]').forEach(n=>{n.textContent=d[n.getAttribute('data-i')]||n.textContent})}
+zhBtn.onclick=()=>{apply(zh);zhBtn.classList.add('on');enBtn.classList.remove('on');document.documentElement.lang='zh'}
+enBtn.onclick=()=>{apply(en);enBtn.classList.add('on');zhBtn.classList.remove('on');document.documentElement.lang='en'}
+</script>
+</body></html>
