@@ -4,7 +4,27 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>More Than A Film</title>
-<style>
+<style>.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.gallery img {
+  width: 100%;
+  height: 280px;        /* 统一高度，可调 240–320px */
+  object-fit: cover;    /* 等比例裁切，保持画面不变形 */
+  border-radius: 14px;
+  border: 1px solid var(--line);
+}
+@media (max-width: 860px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+  .gallery img {
+    height: auto;       /* 移动端用原比例 */
+  }
+}
+
   :root{--bg:#f7f7f5;--fg:#0a0a0a;--muted:#6b6b6b;--line:#e3e3e0}
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif}
@@ -68,12 +88,17 @@
 
 <section id="works" class="section">
   <h2>作品与频道</h2>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
-    <img src="/poster1.png" alt="Poster1" loading="lazy">
-    <img src="/poster2.jpg" alt="Poster2" loading="lazy">
-    <img src="/poster3.jpg" alt="Poster3" loading="lazy">
+  <div class="gallery">
+    <img src="/poster1.png" alt="Rainy Night Café" loading="lazy">
+    <img src="/poster2.jpg" alt="Break Up To Make Up" loading="lazy">
+    <img src="/poster3.jpg" alt="a minor key" loading="lazy">
+  </div>
+  <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap">
+    <a class="pill" href="https://space.bilibili.com/359204615" target="_blank">Bilibili</a>
+    <a class="pill" href="https://www.youtube.com/@MoreThanAFilm" target="_blank">YouTube</a>
   </div>
 </section>
+
 
 <section id="contact" class="section">
   <h2>联系</h2>
