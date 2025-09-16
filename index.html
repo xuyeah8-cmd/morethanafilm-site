@@ -40,7 +40,18 @@
             color:#777;text-align:center}
     .logo-cn,.logo-en{letter-spacing:.18em;font-size:12px}
     @media(max-width:860px){.hero{grid-template-columns:1fr}nav{display:none}}
-  </style>
+  </style>.hero-logo{
+  display:flex; align-items:center; justify-content:flex-end;
+}
+.hero-logo img{
+  height:120px;         /* LOGO 高度，可调 90~140px */
+  max-width:100%;
+  object-fit:contain;
+}
+@media (max-width:860px){
+  .hero-logo{ justify-content:center; margin-top:14px; }
+}
+
 </head>
 <body>
 <header>
@@ -71,7 +82,10 @@
       <a class="pill" href="#announcement" data-i="cta_announcement">成立公告</a>
     </div>
   </div>
-  <div class="muted" style="text-align:right">[LOGO 占位图]</div>
+<div class="hero-logo">
+  <img src="/logo.png" alt="More Than A Film logo">
+</div>
+
 </section>
 
 <section id="announcement" class="section" style="border-top:1px solid var(--line)">
