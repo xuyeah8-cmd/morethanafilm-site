@@ -23,14 +23,24 @@ body{
 
   /* 背景：底色 + 白纱层 + 大幅黑白摄影 */
   background-color:#FAFAF7; /* 兜底 */
-  background-image:
-    linear-gradient(rgba(250,250,247,.86), rgba(250,250,247,.86)),
-    url('/bg-cosmos.png');
+ background-image:
+  linear-gradient(rgba(250,250,247,.75), rgba(250,250,247,.75)),
+  url('/bg-cosmos.png');
   background-repeat: no-repeat, no-repeat;
   background-position: center top, center top;
   background-attachment: fixed, fixed;
   background-size: cover, cover;
+}/* Hero 大字排版（Margiela风格） */
+h1{
+  margin:0 0 10px;
+  font-weight:500;
+  line-height:.90;                 /* 行距更紧 */
+  letter-spacing:-.012em;          /* 轻微负字距 */
+  font-size:clamp(52px, 8.6vw, 128px);
+  max-width:8.8ch;                 /* 控制一行长度，保持3行排布 */
+  word-break:keep-all;
 }
+
 
 
 
