@@ -16,8 +16,20 @@
     :root{ --bg:#FAFAF7; --fg:#0A0A0A; --muted:#707070; --line:#ECECE7; }
     *{ box-sizing:border-box }
     html{ scroll-behavior:smooth }
-    body{ margin:0; background:var(--bg); color:var(--fg);
-          font:16px/1.7 Inter, "Helvetica Neue", Arial, sans-serif; }
+   body{
+  margin:0;
+  background: #FAFAF7 url('/bg-cosmos.png') no-repeat center top fixed;
+  background-size: cover;
+  color:var(--fg);
+  font:16px/1.7 Inter, "Helvetica Neue", Arial, sans-serif;
+}
+body::before{
+  content:"";
+  position:fixed; inset:0;
+  background:rgba(250,250,247,0.85); /* 白纱层，保证文字清晰 */
+  pointer-events:none;
+}
+
 
     /* 版心与节奏 */
     .container{ max-width:1140px; margin:0 auto; padding:0 32px; }
