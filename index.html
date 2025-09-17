@@ -39,7 +39,56 @@ h1{
   font-size:clamp(52px, 8.6vw, 128px);
   max-width:8.8ch;                 /* 控制一行长度，保持3行排布 */
   word-break:keep-all;
+}/* ===== Mobile polish (≤ 860px) ===== */
+@media (max-width: 860px){
+
+  /* 背景：手机上再淡一点，文字更清晰 */
+  body{
+    background-image:
+      linear-gradient(rgba(250,250,247,.92), rgba(250,250,247,.92)),
+      url('/bg-cosmos.png');
+    background-attachment: scroll, scroll;  /* 某些手机对 fixed 性能差 */
+    background-size: cover, cover;
+  }
+
+  /* 头部：高度更紧凑、点击区不小于44px */
+  .header-wrap{ height:60px; }
+  .lang button{ padding:8px 12px; font-size:12px; }
+
+  /* 首屏：上下留白缩小；标题尺寸与行距更易读 */
+  .hero{ padding:72px 0 44px; }
+  .hero-grid{ grid-template-columns:1fr; gap:18px; }
+  h1{
+    font-size: clamp(40px, 12vw, 64px);
+    line-height: .95;
+    max-width: none;            /* 手机端不限制字符数 */
+    letter-spacing: -.006em;
+  }
+  .lead{ font-size:15px; max-width: 100%; }
+  .hero-logo{ justify-content:center; }
+  .hero-logo img{ height:80px; opacity:.9; }  /* LOGO 更克制 */
+
+  /* 按钮：触控更舒适 */
+  .pill{ padding:10px 14px; font-size:14px; }
+
+  /* 各区块：节奏更紧凑 */
+  .section{ padding: 48px 0; }
+
+  /* Works：改为单列，自适应比例；说明字更大一点 */
+  .gallery{ grid-template-columns: 1fr; gap:14px; }
+  .gallery img{ height:auto; }          /* 不强压高度，避免过高裁切 */
+  .gallery-caption{ font-size:13px; letter-spacing: .08em; }
+
+  /* Honors：改为单列卡片 */
+  .honors{ grid-template-columns: 1fr; gap:14px; }
+  .honor-card{ padding:16px 14px; }
+  .honor-title{ font-size:15px; }
+  .honor-meta{ font-size:12px; }
+
+  /* 锚点偏移：手机头部更矮，调整 scroll-margin */
+  section{ scroll-margin-top: 72px; }
 }
+
 
 
 
