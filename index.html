@@ -41,14 +41,15 @@ h1{
   word-break:keep-all;
 }/* ===== Mobile polish (≤ 860px) ===== */
 @media (max-width: 860px){
-
-  /* 背景：手机上再淡一点，文字更清晰 */
   body{
     background-image:
-      linear-gradient(rgba(250,250,247,.92), rgba(250,250,247,.92)),
+      linear-gradient(rgba(250,250,247,.82), rgba(250,250,247,.82)), /* 原来是 .92，现在调淡 */
       url('/bg-cosmos.png');
-    background-attachment: scroll, scroll;  /* 某些手机对 fixed 性能差 */
+    background-attachment: scroll, scroll;
     background-size: cover, cover;
+  }
+}
+
   }
 
   /* 头部：高度更紧凑、点击区不小于44px */
