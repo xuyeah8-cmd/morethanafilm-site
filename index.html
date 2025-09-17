@@ -1,244 +1,242 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>More Than A Film</title>
-<style>.gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-.gallery img {
-  width: 100%;
-  height: 280px;        /* 统一高度，可调 240–320px */
-  object-fit: cover;    /* 等比例裁切，保持画面不变形 */
-  border-radius: 14px;
-  border: 1px solid var(--line);
-}
-@media (max-width: 860px) {
-  .gallery {
-    grid-template-columns: 1fr;
-  }
-  .gallery img {
-    height: auto;       /* 移动端用原比例 */
-  }
-}
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>More Than A Film</title>
 
-  :root{--bg:#f7f7f5;--fg:#0a0a0a;--muted:#6b6b6b;--line:#e3e3e0}/* ===== Layout / Editorial Skin ===== */
-.container{max-width:1120px; margin:0 auto; padding:0 28px}
-.section{padding:72px 0; border-top:1px solid var(--line)}
-@media (max-width:860px){ .section{padding:56px 0} }
+  <style>
+    /* ===== 基础：Works 画廊（你原有的保持） ===== */
+    .gallery { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .gallery img { width:100%; height:280px; object-fit:cover; border-radius:14px; border:1px solid var(--line); }
+    @media (max-width:860px){ .gallery{grid-template-columns:1fr} .gallery img{height:auto} }
+    .gallery-caption{ margin-top:8px; font-size:12px; color:#6d6d6d; letter-spacing:.12em; text-transform:uppercase; }
 
-/* Header */
-header{
-  position:sticky; top:0; z-index:30;
-  background:rgba(250,250,247,.88);
-  backdrop-filter:saturate(140%) blur(6px);
-  border-bottom:1px solid var(--line);
-}
-.header-wrap{display:flex; align-items:center; justify-content:space-between; height:68px}
-.brand{display:flex; align-items:center; gap:12px}
-.brand-text{letter-spacing:.18em; font-size:11px; line-height:1; color:var(--fg)}
-nav a{
-  text-transform:uppercase; letter-spacing:.18em; font-size:11px;
-  color:#555; text-decoration:none; padding:8px 0; margin-left:28px;
-  transition:color .18s ease;
-}
-nav a:hover{color:var(--fg)}
-.lang button{
-  border:1px solid var(--line); background:#fff; color:var(--fg);
-  padding:6px 10px; border-radius:999px; margin-left:6px; font-size:11px;
-}
-.lang .on{background:var(--fg); color:#fff; border-color:var(--fg)}
-@media (max-width:860px){ nav{display:none} }
+    /* ===== 变量与基础 ===== */
+    :root{ --bg:#FAFAF7; --fg:#0A0A0A; --muted:#707070; --line:#ECECE7; }
+    *{ box-sizing:border-box }
+    html{ scroll-behavior:smooth }
+    body{ margin:0; background:var(--bg); color:var(--fg);
+          font:16px/1.7 Inter, "Helvetica Neue", Arial, sans-serif; }
 
-/* Hero */
-.hero{padding:96px 0 56px}
-.hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:32px}
-h1{
-  margin:0 0 12px; font-weight:500;
-  letter-spacing:-.02em; line-height:.95;
-  font-size:clamp(48px, 9vw, 132px);
-}
-.lead{color:var(--muted); font-size:17px; max-width:560px}
-.hero-logo{display:flex; align-items:center; justify-content:flex-end}
-.hero-logo img{height:120px; max-width:100%; object-fit:contain; opacity:.9}
-@media (max-width:860px){
-  .hero-grid{grid-template-columns:1fr}
-  .hero-logo{justify-content:center; margin-top:16px}
-}
+    /* 版心与节奏 */
+    .container{ max-width:1140px; margin:0 auto; padding:0 32px; }
+    .section{ padding:88px 0; border-top:1px solid var(--line); }
+    @media (max-width:860px){ .section{ padding:64px 0 } }
 
-/* Tag-like button */
-.pill{
-  display:inline-block; border:1px solid var(--line);
-  padding:10px 14px; border-radius:12px; text-decoration:none; color:var(--fg);
-  transition:background .18s ease, border-color .18s ease;
-}
-.pill:hover{background:#fff; border-color:#ddd}
+    /* Header */
+    header{ position:sticky; top:0; z-index:30;
+            background:rgba(250,250,247,.88); backdrop-filter:saturate(140%) blur(6px);
+            border-bottom:1px solid var(--line); }
+    .header-wrap{ display:flex; align-items:center; justify-content:space-between; height:68px; }
+    .brand{ display:flex; align-items:center; gap:12px }
+    .brand-text{ letter-spacing:.18em; font-size:11px; line-height:1; color:var(--fg) }
+    nav a{ text-transform:uppercase; letter-spacing:.20em; font-size:11px; color:#5a5a5a;
+           text-decoration:none; padding:6px 0; margin-left:32px; text-underline-offset:3px; }
+    nav a:hover{ color:#111; text-decoration:underline; }
+    .lang button{ font-size:11px; padding:5px 10px; border-radius:999px;
+                  border:1px solid var(--line); background:#fff; color:#111; }
+    .lang .on{ background:#111; color:#fff; border-color:#111; }
+    @media (max-width:860px){ nav{ display:none } }
 
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif}
-  header{position:sticky;top:0;background:rgba(247,247,245,.9);backdrop-filter:saturate(150%) blur(6px);border-bottom:1px solid var(--line)}
-  .wrap{max-width:1000px;margin:0 auto;padding:18px 22px;display:flex;align-items:center;justify-content:space-between}
-  nav a{text-transform:uppercase;letter-spacing:.18em;font-size:12px;color:#666;text-decoration:none;margin-left:22px}
-  .lang button{border:1px solid var(--line);padding:6px 10px;border-radius:999px;background:#fff;margin-left:6px;cursor:pointer}
-  .lang .on{background:#000;color:#fff;border-color:#000}
-  .hero{max-width:1000px;margin:0 auto;padding:56px 22px 32px;display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
-  h1{font-weight:500;letter-spacing:-.02em;line-height:.98;font-size:clamp(40px,7vw,84px);margin:0 0 12px}
-  .muted{color:var(--muted)}
-  .section{max-width:1000px;margin:0 auto;padding:42px 22px;border-top:1px solid var(--line)}
-  html{scroll-behavior:smooth} section{scroll-margin-top:90px}
-  .hero-logo{display:flex;align-items:center;justify-content:flex-end}
-  .hero-logo img{height:120px;max-width:100%;object-fit:contain}
-  @media(max-width:860px){.hero{grid-template-columns:1fr}.hero-logo{justify-content:center;margin-top:14px}nav{display:none}}
-</style>
+    /* Hero */
+    .hero{ padding:110px 0 72px; }
+    .hero-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:32px; }
+    h1{ margin:0 0 12px; font-weight:500; letter-spacing:-.015em; line-height:.92;
+        font-size:clamp(56px, 9.5vw, 136px); }
+    .lead{ color:var(--muted); font-size:17px; max-width:560px }
+    .hero-logo{ display:flex; align-items:center; justify-content:flex-end }
+    .hero-logo img{ height:108px; max-width:100%; object-fit:contain; opacity:.85 }
+    @media (max-width:860px){ .hero-grid{ grid-template-columns:1fr } .hero-logo{ justify-content:center; margin-top:16px } }
+
+    /* 按钮：标签感 */
+    .pill{ display:inline-block; border:1px solid var(--line); padding:8px 12px;
+           border-radius:10px; text-decoration:none; color:#111; font-size:13px;
+           transition:background .18s ease, border-color .18s ease; }
+    .pill:hover{ background:#fff; border-color:#ddd }
+
+    /* Honors */
+    .honors{ display:grid; grid-template-columns:repeat(2,1fr); gap:22px }
+    .honor-card{ border-radius:10px; background:#fff; border:1px solid var(--line); padding:20px 18px 16px }
+    .honor-title{ display:flex; align-items:center; gap:10px; font-weight:600; font-size:15px; letter-spacing:.03em }
+    .honor-badge{ width:18px; height:18px; color:#0A0A0A }
+    .honor-meta{ margin-top:6px; color:#7a7a7a; font-size:12px; letter-spacing:.08em; text-transform:uppercase }
+    .honor-list{ margin:10px 0 0 1em; padding:0 }
+    .honor-list li{ margin:6px 0 }
+    @media (max-width:860px){ .honors{ grid-template-columns:1fr } }
+
+    /* Footer */
+    footer{ border-top:1px solid var(--line); padding:36px 0; color:#7a7a7a; font-size:12px }
+
+    /* 锚点偏移 */
+    section{ scroll-margin-top:92px }
+  </style>
 </head>
 <body>
-<header>
-  <div class="container header-wrap">
-    <div class="brand">
-      <!-- 如果想用圖標LOGO也行：<img src="/logo.png" alt="MTAF" class="brand-mark"> -->
-      <div class="brand-text">墨 然 映 画<br>MORE THAN A FILM</div>
-    </div>
-    <nav>
-      <a href="#announcement">公告</a>
-      <a href="#services">业务</a>
-      <a href="#honors">荣誉</a>
-      <a href="#works">作品</a>
-      <a href="#contact">联系</a>
-    </nav>
-    <div class="lang">
-      <button id="zhBtn" class="on">ZH</button><button id="enBtn">EN</button>
-    </div>
-  </div>
-</header>
 
-<section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <h1>MORE<br>THAN A<br>FILM</h1>
-      <p class="lead" id="tagline">创作的价值，不止于影像本身。</p>
-      <div style="margin-top:18px; display:flex; gap:10px; flex-wrap:wrap">
-        <a class="pill" href="#services">了解业务</a>
-        <a class="pill" href="#announcement">成立公告</a>
+  <!-- Header -->
+  <header>
+    <div class="container header-wrap">
+      <div class="brand">
+        <!-- 若想用图标：<img src="/logo.png" alt="MTAF" class="brand-mark"> -->
+        <div class="brand-text">墨 然 映 画<br>MORE THAN A FILM</div>
+      </div>
+      <nav>
+        <a href="#announcement">公告</a>
+        <a href="#services">业务</a>
+        <a href="#honors">荣誉</a>
+        <a href="#works">作品</a>
+        <a href="#contact">联系</a>
+      </nav>
+      <div class="lang">
+        <button id="zhBtn" class="on">ZH</button><button id="enBtn">EN</button>
       </div>
     </div>
-    <div class="hero-logo">
-      <img src="/logo.png" alt="More Than A Film logo">
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1>MORE<br>THAN A<br>FILM</h1>
+        <p class="lead" id="tagline">创作的价值，不止于影像本身。</p>
+        <div style="margin-top:18px; display:flex; gap:10px; flex-wrap:wrap">
+          <a class="pill" href="#services">了解业务</a>
+          <a class="pill" href="#announcement">成立公告</a>
+        </div>
+      </div>
+      <div class="hero-logo">
+        <img src="/logo.png" alt="More Than A Film logo">
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
-<section id="announcement" class="section">
-  <div class="container">
-    <h2>公司成立公告</h2>
-    <p>墨然映画有限公司（More Than A Film Limited）已于 2025 年 9 月 16 日在香港正式注册成立。</p>
-    <p>本公司为独立影像制作公司，兼顾原创项目与实际落地。</p>
-  </div>
-</section>
-
-<section id="services" class="section">
-  <h2>业务</h2>
-  <ul><li>短片/长片开发</li><li>AIGC 影像创作</li><li>制片执行与后期</li></ul>
-</section>
-
-<section id="works" class="section">
-  <div class="container">
-    <h2>作品与频道</h2>
-    <div class="gallery">
-      <figure>
-        <img src="/poster1.png" alt="Rainy Night Café" loading="lazy">
-        <figcaption class="gallery-caption">Rainy Night Café · AIGC Series · 2025</figcaption>
-      </figure>
-      <figure>
-        <img src="/poster2.jpg" alt="Break Up To Make Up" loading="lazy">
-        <figcaption class="gallery-caption">Break Up To Make Up · Short Film · 2025</figcaption>
-      </figure>
-      <figure>
-        <img src="/poster3.jpg" alt="A Minor Key" loading="lazy">
-        <figcaption class="gallery-caption">A Minor Key · Short Film · 2025</figcaption>
-      </figure>
+  <!-- Announcement -->
+  <section id="announcement" class="section">
+    <div class="container">
+      <h2>公司成立公告</h2>
+      <p>墨然映画有限公司（More Than A Film Limited）已于 2025 年 9 月 16 日在香港正式注册成立。</p>
+      <p>本公司为独立影像制作公司，兼顾原创项目与实际落地。</p>
     </div>
-    <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap">
-      <a class="pill" href="https://space.bilibili.com/359204615" target="_blank">Bilibili</a>
-      <a class="pill" href="https://www.youtube.com/@MoreThanAFilm" target="_blank">YouTube</a>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="section">
+    <div class="container">
+      <h2>业务</h2>
+      <ul>
+        <li>短片/长片开发（Development）</li>
+        <li>AIGC 影像创作（AIGC Visuals）</li>
+        <li>制片执行与后期（Production & Post）</li>
+      </ul>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- Works -->
+  <section id="works" class="section">
+    <div class="container">
+      <h2>作品与频道</h2>
+      <div class="gallery">
+        <figure>
+          <img src="/poster1.png" alt="Rainy Night Café" loading="lazy">
+          <figcaption class="gallery-caption">Rainy Night Café · AIGC Series · 2025</figcaption>
+        </figure>
+        <figure>
+          <img src="/poster2.jpg" alt="Break Up To Make Up" loading="lazy">
+          <figcaption class="gallery-caption">Break Up To Make Up · Short Film · 2024</figcaption>
+        </figure>
+        <figure>
+          <img src="/poster3.jpg" alt="A Minor Key" loading="lazy">
+          <figcaption class="gallery-caption">A Minor Key · Short Film · 2025</figcaption>
+        </figure>
+      </div>
+      <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap">
+        <a class="pill" href="https://space.bilibili.com/359204615" target="_blank">Bilibili</a>
+        <a class="pill" href="https://www.youtube.com/@MoreThanAFilm" target="_blank">YouTube</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Honors -->
   <section id="honors" class="section">
-  <div class="container">
-    <h2>入围与荣誉</h2>
-    <div class="honors">
-      <!-- 患曲 · A Minor Key -->
-      <article class="honor-card">
-        <div class="honor-title">
-          <svg class="honor-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M6 19c-2-2-3-4.5-3-7 0-1.5.5-3 1.5-4.5M18 19c2-2 3-4.5 3-7 0-1.5-.5-3-1.5-4.5"/>
-            <path d="M8 18c-1.5-1.2-2.5-3-2.8-5M16 18c1.5-1.2 2.5-3 2.8-5"/>
-          </svg>
-          患曲 · A Minor Key
-        </div>
-        <div class="honor-meta">短片 | Official Selections & Awards</div>
-        <ul class="honor-list">
-          <li>科莱坞国际电影节（最佳亚洲短片）</li>
-          <li>斯德哥尔摩城市电影节</li>
-          <li>多伦多国际诺莱坞电影节</li>
-          <li>罗马棱镜电影节（最佳男配角：小爱）</li>
-          <li>釜山国际电影节（市场单元）</li>
-        </ul>
-      </article>
+    <div class="container">
+      <h2>入围与荣誉</h2>
+      <div class="honors">
+        <!-- 患曲 · A Minor Key -->
+        <article class="honor-card">
+          <div class="honor-title">
+            <svg class="honor-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 19c-2-2-3-4.5-3-7 0-1.5.5-3 1.5-4.5M18 19c2-2 3-4.5 3-7 0-1.5-.5-3-1.5-4.5"/>
+              <path d="M8 18c-1.5-1.2-2.5-3-2.8-5M16 18c1.5-1.2 2.5-3 2.8-5"/>
+            </svg>
+            患曲 · A Minor Key
+          </div>
+          <div class="honor-meta">短片 | Official Selections & Awards</div>
+          <ul class="honor-list">
+            <li>科莱坞国际电影节（最佳亚洲短片）</li>
+            <li>斯德哥尔摩城市电影节</li>
+            <li>多伦多国际诺莱坞电影节</li>
+            <li>罗马棱镜电影节（最佳男配角：小爱）</li>
+            <li>釜山国际电影节（市场单元）</li>
+          </ul>
+        </article>
 
-      <!-- 再度 · Break Up To Make Up -->
-      <article class="honor-card">
-        <div class="honor-title">
-          <svg class="honor-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M6 19c-2-2-3-4.5-3-7 0-1.5.5-3 1.5-4.5M18 19c2-2 3-4.5 3-7 0-1.5-.5-3-1.5-4.5"/>
-            <path d="M8 18c-1.5-1.2-2.5-3-2.8-5M16 18c1.5-1.2 2.5-3 2.8-5"/>
-          </svg>
-          再度 · Break Up To Make Up
-        </div>
-        <div class="honor-meta">短片 | Official Selections & Mentions</div>
-        <ul class="honor-list">
-          <li>斯德哥尔摩城市电影节</li>
-          <li>第二届二十四格独立影展</li>
-          <li>罗马棱镜电影节</li>
-          <li>吕勒奥国际电影节</li>
-          <li>AIMAFF 电影节（荣誉提及）</li>
-          <li>尼廷国际电影节（最佳亚洲短片）</li>
-          <li>Veneto 国际短片电影节</li>
-          <li>国际加尔各答短片电影节（IKSFF 2026）</li>
-        </ul>
-      </article>
+        <!-- 再度 · Break Up To Make Up -->
+        <article class="honor-card">
+          <div class="honor-title">
+            <svg class="honor-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 19c-2-2-3-4.5-3-7 0-1.5.5-3 1.5-4.5M18 19c2-2 3-4.5 3-7 0-1.5-.5-3-1.5-4.5"/>
+              <path d="M8 18c-1.5-1.2-2.5-3-2.8-5M16 18c1.5-1.2 2.5-3 2.8-5"/>
+            </svg>
+            再度 · Break Up To Make Up
+          </div>
+          <div class="honor-meta">短片 | Official Selections & Mentions</div>
+          <ul class="honor-list">
+            <li>斯德哥尔摩城市电影节</li>
+            <li>第二届二十四格独立影展</li>
+            <li>罗马棱镜电影节</li>
+            <li>吕勒奥国际电影节</li>
+            <li>AIMAFF 电影节（荣誉提及）</li>
+            <li>尼廷国际电影节（最佳亚洲短片）</li>
+            <li>Veneto 国际短片电影节</li>
+            <li>国际加尔各答短片电影节（IKSFF 2026）</li>
+          </ul>
+        </article>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-  
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>联系</h2>
+      <p>商务与合作：<a class="pill" href="mailto:morethanpictures2024@gmail.com">morethanpictures2024@gmail.com</a></p>
+    </div>
+  </section>
 
+  <!-- Footer -->
+  <footer>
+    <div class="container">© 2025 More Than A Film Limited · All Rights Reserved</div>
+  </footer>
 
+  <!-- 轻量脚本：锚点偏移 + 中英切换 -->
+  <script>
+    function scrollToHash(){
+      const id=location.hash.slice(1); if(!id) return;
+      const el=document.getElementById(id); if(!el) return;
+      const y=el.getBoundingClientRect().top+window.scrollY-92;
+      window.scrollTo({top:y, behavior:'smooth'});
+    }
+    addEventListener('load',scrollToHash);
+    addEventListener('hashchange',scrollToHash);
 
-<section id="contact" class="section">
-  <h2>联系</h2>
-  <p>商务与合作：<a href="mailto:morethanpictures2024@gmail.com">morethanpictures2024@gmail.com</a></p>
-</section>
-
-<script>
-function scrollToHash(){const id=location.hash.slice(1); if(!id) return;
-  const el=document.getElementById(id); if(!el) return;
-  const y=el.getBoundingClientRect().top+window.scrollY-90;
-  window.scrollTo({top:y, behavior:'smooth'});}
-addEventListener('load',scrollToHash); addEventListener('hashchange',scrollToHash);
-
-const zh={tag:'创作的价值，不止于影像本身。'},
-      en={tag:'The value of creation is never confined to the image itself.'};
-const zhBtn=document.getElementById('zhBtn'),
-      enBtn=document.getElementById('enBtn'),
-      t=document.getElementById('tagline');
-zhBtn.onclick=()=>{t.textContent=zh.tag; zhBtn.classList.add('on'); enBtn.classList.remove('on'); document.documentElement.lang='zh'}
-enBtn.onclick=()=>{t.textContent=en.tag; enBtn.classList.add('on'); zhBtn.classList.remove('on'); document.documentElement.lang='en'}
-</script>
-
-</body></html>
-
+    const zh={tag:'创作的价值，不止于影像本身。'},
+          en={tag:'The value of creation is never confined to the image itself.'};
+    const zhBtn=document.getElementById('zhBtn'),
+          enBtn=document.getElementById('enBtn'),
+          tag=document.getElementById('tagline');
+    zhBtn.onclick=()=>{ tag.textContent=zh.tag; zhBtn.classList.add('on'); enBtn.classList.remove('on'); document.documentElement.lang='zh'; };
+    enBtn.onclick=()=>{ tag.textContent=en.tag; enBtn.classList.add('on'); zhBtn.classList.remove('on'); document.documentElement.lang='en'; };
+  </script>
+</body>
+</html>
